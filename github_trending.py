@@ -8,7 +8,8 @@ def get_trending_repositories(top_size):
     info_repositories = []
     date_week_back = datetime.now() - timedelta(days=7)
     url = ('https://api.github.com/search/'
-           'repositories?q=created:>={:%Y-%m-%d}&sort=stars'.format(date_week_back))
+           'repositories?q=created:>={:%Y-%m-%d}&sort='
+           'stars'.format(date_week_back))
     list_trending_repositories = requests.get(url).json()
     for repository in list_trending_repositories['items'][0:top_size]:
         info_repositories.append({
